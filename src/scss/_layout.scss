@@ -1,3 +1,52 @@
 // Navbar
+.nav {
+  padding: 0 2rem;
+
+  @include breakpoint-up(medium) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+  }
+
+  &__links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include breakpoint-up(medium) {
+      flex-direction: row;
+
+      li {
+        &:not(:first-child) {
+          margin-left: 3rem;
+        }
+
+        a {
+          display: block;
+          color: #fff;
+        }
+      }
+    }
+  }
+
+  &__btn {
+    background: none;
+    border: 0;
+    outline: none;
+
+    span {
+      width: 26px;
+      height: 3px;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+
+      &:not(:last-child) {
+        margin-bottom: .25rem;
+      }
+    }
+  }
+}
 
 // Footer
