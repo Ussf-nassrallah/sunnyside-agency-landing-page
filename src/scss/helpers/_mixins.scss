@@ -17,3 +17,31 @@ $breakpoints-down: ("small": "39.9375em", "medium": "63.9375em", "large": "87.43
     @content;
   }
 }
+
+// Grid System
+@mixin grid($cols, $gap) {
+  display: grid;
+  gap: $gap;
+  grid-template-columns: repeat($cols, 1fr);
+  place-items: center;
+
+  @include breakpoint-down(medium) {
+    place-items: initial;
+  }
+
+  @if($cols==2) {
+    @include breakpoint-down(medium) {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+
+  @else if($cols==3) {
+    @include breakpoint-down(medium) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include breakpoint-down(small) {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+}
